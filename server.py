@@ -19,7 +19,7 @@ load_dotenv(ROOT_DIR / '.env')
 mongo_url = os.environ.get('MONGO_URL') or os.environ.get('MONGODB_URL')
 if not mongo_url:
     raise ValueError("MONGO_URL or MONGODB_URL environment variable is required")
-client = AsyncIOMotorClient(mongo_url, tls=True, tlsAllowInvalidCertificates=True)
+client = AsyncIOMotorClient(mongo_url)
 db_name = os.environ.get('DB_NAME', 'conteggi_personali')
 db = client[db_name]
 
